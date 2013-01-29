@@ -1,0 +1,3 @@
+survey_homepage:
+    pattern:  /fdasfsd/{name}
+    defaults: { _controller: SurveyBundle:Default:index }
