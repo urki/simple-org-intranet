@@ -1,17 +1,16 @@
 {% extends 'SurveyBundle::layout2.html.twig' %}
 
-{% set title = 'naslov6a' %}
+{% set title = 'Popis' %}
 
 
 {% block content %}
   {{ parent() }}
 
-  <img id="flag" src="images/flags/pk.png"/>
-  
-  
+
+
   
 <div class="container">
-    <h1>Survey</h1>
+
     <p>
         
      
@@ -51,13 +50,11 @@
     </tbody>
 </table>
 
-<ul>
-    <li>
-        <a href="{{ path('survey_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+
+        <a href="{{ path('survey_new') }}" class="btn btn-large btn-warning disabled">Nov vnos</a>
+        
+  
+
 
     
 

@@ -1,4 +1,11 @@
-{% extends '::layout.html.twig' %}
+{% extends 'SurveyBundle::layout2.html.twig' %}
+{% set title = 'Popis' %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
 
 <h1>Survey edit</h1>
 
@@ -22,3 +29,4 @@
         </form>
     </li>
 </ul>
+{% endblock content %}
