@@ -26,6 +26,7 @@ class SurveyType extends AbstractType {
                     'widget' => 'choice',
                     'label' => 'Čas začetka:',
                     'hours' => range(10, 18),
+                    
                     'data'=> new \DateTime('now')
                     ))
                  

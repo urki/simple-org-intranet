@@ -1,29 +1,35 @@
 {% extends 'SurveyBundle::layout2.html.twig' %}
 
-{% set title = 'Popis' %}
+{% set title = 'Popis - nov vnos' %}
 
 
 {% block content %}
   {{ parent() }}
-<h1>Nov vnos</h1>
-     
+
 <form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
-    <img id="flag" src="http://localhost/images/flags/trgovina.gif" class="img-polaroid" />
-    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span3 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://localhost/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+
+    {{ form_errors(form) }}
+    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span2 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://localhost/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+    {{ form_row(form.temperature, { 'label' : 'Temperatura' }) }}
+    {{ form_row(form.moisture, { 'label' : 'Vlaga' }) }}
+    {{ form_row(form.note, { 'label' : 'Opomba', 'attr' : { 'class' : 'span2'} }) }}
+    {{ form_row(form.date, { 'label' : 'Datum vpisovanja', 'attr' : { 'class' : 'span2'} }) }}
+    {{ form_row(form.time, { 'label' : 'Čas vpisa'} ) }}
     {{ form_widget(form) }}          
     <p>
-        <button type="submit">Create</button>
+        <button class="btn btn-success" type="submit">Zapiši</button>
     </p>
+    <img id="flag" src="http://localhost/images/flags/trgovina.gif" class="img-circle" />
 </form>
-  
+
 <ul class="record_actions">
     <li>
         <a href="{{ path('survey') }}">
             Back to the list
         </a>
     </li>
-    
- 
-  
+
+
+
 </ul>
 {% endblock content %}
