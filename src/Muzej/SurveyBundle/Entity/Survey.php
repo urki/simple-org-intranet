@@ -6,12 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Survey
- *
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="climatic_survey")
  * @ORM\Entity(repositoryClass="Muzej\SurveyBundle\Entity\SurveyRepository")
  */
 class Survey
 {
+    
     /**
      * @var integer
      *
@@ -29,12 +30,20 @@ class Survey
     private $name;
 
     /**
-     * @var \DateTime
+     * @var \Time
      *
-     * @ORM\Column(name="time", type="datetime")
+     * @ORM\Column(name="time", type="time")
      */
     private $time;
 
+     /**
+     * @var \Date
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+    
+    
     /**
      * @var float
      *
@@ -55,8 +64,23 @@ class Survey
      * @ORM\Column(name="note", type="text", nullable=true)
      */
     private $note;
+    
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $created_at;
 
-
+  
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreated_atValue() {
+        $this->created_at= new \DateTime();
+    }
+   
+  
+    
     /**
      * Get id
      *
@@ -119,6 +143,33 @@ class Survey
      * @param float $temperature
      * @return Survey
      */
+    
+     public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set temperature
+     *
+     * @param float $temperature
+     * @return Survey
+     */
+    
+    
+    
     public function setTemperature($temperature)
     {
         $this->temperature = $temperature;

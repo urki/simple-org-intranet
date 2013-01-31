@@ -1,12 +1,21 @@
-<h1>Survey creation</h1>
+{% extends 'SurveyBundle::layout2.html.twig' %}
 
+{% set title = 'Popis' %}
+
+
+{% block content %}
+  {{ parent() }}
+<h1>Nov vnos</h1>
+     
 <form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    <img id="flag" src="http://localhost/images/flags/trgovina.gif" class="img-polaroid" />
+    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span3 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://localhost/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+    {{ form_widget(form) }}          
     <p>
         <button type="submit">Create</button>
     </p>
 </form>
-
+  
 <ul class="record_actions">
     <li>
         <a href="{{ path('survey') }}">
@@ -14,7 +23,7 @@
         </a>
     </li>
     
-  <img id="flag" src="images/flags/pk.png" class="img-polaroid" />
-  
+ 
   
 </ul>
+{% endblock content %}

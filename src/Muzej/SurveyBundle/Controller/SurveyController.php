@@ -51,7 +51,6 @@ class SurveyController extends Controller
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
-
     /**
      * Displays a form to create a new Survey entity.
      *
@@ -76,7 +75,8 @@ class SurveyController extends Controller
         $entity  = new Survey();
         $form = $this->createForm(new SurveyType(), $entity);
         $form->bind($request);
-
+ 
+   
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -163,7 +163,7 @@ class SurveyController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Survey entity.');
             }
-
+         
             $em->remove($entity);
             $em->flush();
         }
