@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+            <link href="{{ asset('bundles/survey/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/survey/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/survey/css/chosen.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/survey/js/chosen.jquery.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('bundles/survey/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/survey/js/bootstrap-collapse.js') }}"></script>   
+    
+
+  
+    
+    <script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>{% endblock %}
+    </body>
+</html>

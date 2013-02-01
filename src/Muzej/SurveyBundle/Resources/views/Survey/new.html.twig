@@ -6,30 +6,49 @@
 {% block content %}
   {{ parent() }}
 
-<form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
+<div class="row">
+    <div class="span2">
+        <form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
 
     {{ form_errors(form) }}
-    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span2 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://localhost/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span2 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://192.168.50.12/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
     {{ form_row(form.temperature, { 'label' : 'Temperatura' }) }}
     {{ form_row(form.moisture, { 'label' : 'Vlaga' }) }}
+    
+
+
+<div id="demo" class="collapse">
+
     {{ form_row(form.note, { 'label' : 'Opomba', 'attr' : { 'class' : 'span2'} }) }}
     {{ form_row(form.date, { 'label' : 'Datum vpisovanja', 'attr' : { 'class' : 'span2'} }) }}
     {{ form_row(form.time, { 'label' : 'Čas vpisa'} ) }}
-    {{ form_widget(form) }}          
-    <p>
-        <button class="btn btn-success" type="submit">Zapiši</button>
-    </p>
-    <img id="flag" src="http://localhost/images/flags/trgovina.gif" class="img-circle" />
-</form>
+    {{ form_widget(form) }}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('survey') }}">
-            Back to the list
-        </a>
-    </li>
+</div>
+
+       
+ 
+
+            <div class="btn-group" data-toggle="buttons-checkbox">
+                <button class="btn btn-success" type="submit"><i class="icon-pencil"></i> Zapiši</button>
+
+                <a class="btn  btn-warning record_actions" href="{{ path('survey') }}"><i class="icon-refresh"></i> Obrni</a>
+ <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo"><i class="icon-plus"></i> ...več</button>
+            </div>    
 
 
 
-</ul>
+        </form>
+
+
+
+    </div>
+    <div class="hidden-phone span5">
+        <img id="flag" src="http://192.168.50.12/images/flags/trgovina.gif" class="img-circle" />
+    </div>
+</div>
+
+
+
+
 {% endblock content %}

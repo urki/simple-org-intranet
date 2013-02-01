@@ -1,3 +1,7 @@
+root_experiment:
+    resource: "@RootExperimentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
 survey:
     resource: "@SurveyBundle/Resources/config/routing.yml"
