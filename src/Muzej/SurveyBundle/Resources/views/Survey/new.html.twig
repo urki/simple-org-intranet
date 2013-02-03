@@ -5,13 +5,17 @@
 
 {% block content %}
   {{ parent() }}
+ 
 
+ 
+    
+    
 <div class="row">
-    <div class="span2">
+    <div class="span3">
         <form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
 
     {{ form_errors(form) }}
-    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span2 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='http://192.168.50.12/images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+    {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span2 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='../../images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
     {{ form_row(form.temperature, { 'label' : 'Temperatura' }) }}
     {{ form_row(form.moisture, { 'label' : 'Vlaga' }) }}
     
@@ -43,8 +47,8 @@
 
 
     </div>
-    <div class="hidden-phone span5">
-        <img id="flag" src="http://192.168.50.12/images/flags/trgovina.gif" class="img-circle" />
+    <div class="hidden-phone span4">
+        <img id="flag" src="../../images/flags/trgovina.gif" class="img-circle" />
     </div>
 </div>
 

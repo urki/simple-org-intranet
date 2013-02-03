@@ -2,7 +2,10 @@ root_experiment:
     resource: "@RootExperimentBundle/Resources/config/routing.yml"
     prefix:   /
 
-
+user_routes:
+    resource: "@UserBundle/Controller"
+    type: annotation
+    
 survey:
     resource: "@SurveyBundle/Resources/config/routing.yml"
     prefix:   /

@@ -19,8 +19,9 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Muzej\SurveyBundle\SurveyBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Muzej\SurveyBundle\SurveyBundle(),
+            new Muzej\UserBundle\UserBundle(),
             new Root\ExperimentBundle\RootExperimentBundle(),
         );
 

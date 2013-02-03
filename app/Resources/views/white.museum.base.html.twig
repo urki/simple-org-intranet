@@ -17,39 +17,41 @@
             <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
             <![endif]-->
-           {% endblock %}
+           {% endblock stylesheets %}
             <!-- Fav and touch icons -->
             <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% endblock %}
+        {% endblock head %}
         </head>
+
         <body>
-            <div class="container-narrow">
-            <div id="contentheader">{% block contentheader %}{% endblock contentheader %}</div>
-            <div id="content">{% block content %}<h1>Hello, world!</h1>{% endblock content%}
+            {% block body %}
+                <div class="container-narrow">
+                    <div id="contentheader">{% block contentheader %}{% endblock contentheader %}</div>
+                    <div id="content">{% block content %}{% endblock content%}
               {#  for javascript and other things directly after contetnt is thi contentfoot  #}
               {% block contentfoot %}{% endblock contentfoot %} 
-            </div>
-            <div id="footer">
+                        </div>
+                        <div id="footer">
             {% block footer %}
-                    &copy; Copyright 2011 by <a href="http://root.si">ROOT d.o.o</a>.
+                                &copy; Copyright 2011 by <a href="http://root.si">ROOT d.o.o</a>.
             {% endblock %}
-                </div>
-            </div>
+                            </div>
+                        </div>
         {% block javascripts %}
-                
-                <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
-                <script>
-                      $(function() {
-                         $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", appendText: "(Dan/Mesec/Leto)", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+1m", minDate: "-1m" });
-                      });
-                      $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true});
-                    </script>
+
+                        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
+                        <script>
+                              $(function() {
+                                 $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", appendText: "(Dan/Mesec/Leto)", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+1m", minDate: "-1m" });
+                              });
+                              $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true});
+                            </script>
         {% endblock %}
 
+{% endblock body %}
 
-
-                </body>
-            </html>
+                        </body>
+                    </html>
 
 
 
