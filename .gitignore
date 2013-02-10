@@ -11,4 +11,8 @@ web/bundles/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+
+#ignore nbproject
+nbproject
 /nbproject/private/
+

@@ -1,0 +1,223 @@
+
+
+HEADER (In this section you can customize the links appearing in the top navigation menu. Please do not remove the last link. It points to the deviation to people to download this CSS Pack)
+
+------------------------------------------------------------------------------------------------------------
+
+
+<br><div class="nav"><ul><li><a href="http://bobbyperux.deviantart.com/gallery/">gallery <i>// what i do</i></a></li><li><a href="http://bobbyperux.deviantart.com/">watch me <i>// keep you updated</i></a></li><li><a href="http://bobbyperux.deviantart.com/favourites/">favorites <i>// what i like</i></a></li><li><a href="http://robertoabril.carbonmade.com/">website <i>// my personal portfolio</i></a></li><li><a href="http://my.deviantart.com/notes/?tk=cwsHVhoVUhZETA%3D%3D">send me a note  <i>// contact me</i></a></li><li><a href="http://bobbyperux.deviantart.com/art/Wood-CSS-Pack-103088022">get this journal  <i>// it´s for free!!</i></a></li></ul></div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+JOURNAL ENTRY (This is the sectionn for your journal entry. You can quote sentences by placing your text inside the <i> tags. You can also add deviation previews here replacing the :thumbs: in the feature div class)
+
+------------------------------------------------------------------------------------------------------------
+
+<div class="content"><p><div class="tittle">01.- Lorem ipsum dolor sit amet</div>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.<a href="http://www.gutenberg.org/files/219/219.txt">vanishing flatness</a>.</p>
+<p><div class="tittle">02.- Lorem ipsum dolor sit amet</div>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<i><p>"Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p></i>
+<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+
+
+<div class="feature">:thumb55582709:</div></p></div>
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+FOOTER (Section for your stamps, clubs or featured works. It works exactly the same as the previous feature section in the Journal Entry text box)
+
+------------------------------------------------------------------------------------------------------------
+
+
+<div class="featureframe"><div class="featuretittle">featured deviations | stamps | clubs</div><p>:thumb92603854::thumb92603689::thumb92603811:</p></div></div>
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+CSS
+
+---------------------------------------------------------------------------------------------------
+
+
+.journalbox .list {
+	display:none !important;
+}
+.journalbox .journaltop img {
+	display:none !important;
+}
+.journalbox {
+	background-image:url('http://img511.imageshack.us/img511/9076/gallerybackuq4.jpg');
+	border:0px;
+	margin:0px;
+	padding:50px;
+}
+.journalbox .journaltop {
+	background-color:transparent !important;
+	font-size:10px;
+	color:#f29400;
+}
+span {
+	font-family:arial, helvetica, sans serif;
+	font-size:10px;
+	color:#f29400;
+}
+.journalbox .journaltop h2 {
+	color:#ffffff;
+	font-family:century gothic, arial black, helvetica, sans serif;
+	font-size:4.9em;
+	letter-spacing:-0.05em;
+	line-height:1.078em;
+	margin-left:-10px;
+}
+.journalbox .journaltext .content {
+	font-size:1.02em;
+	color:#000000;
+	line-height:1.45em;
+	font-family:trebuchet ms, century gothic, arial, helvetica, sans serif;
+	display:block;
+	background-image:url('http://img111.imageshack.us/img111/3459/woobackcontents2jx3.png');
+	border-bottom:1px solid #f27500;
+	padding:35px;
+	letter-spacing:-0.02em text-align:justify;
+	font-weight:bold;
+}
+.journalbox .journaltext .content i {
+	padding:25px;
+	text-align:center !important;
+	font-weight:bold;
+	font-size:1.03em;
+	font-family:georgia, serif;
+}
+.journalbox .journaltext .content a {
+	text-decoration:none !important;
+	color:#f29400;
+}
+.journalbox .journaltext .content a:hover {
+	text-decoration:none !important;
+	color:#fff;
+}
+.journalbox .journaltext .content .tittle {
+	font-size:2em;
+	color:#f29400;
+	border-bottom:1px dashed #f29400;
+	padding:8px;
+	font-weight:lighter;
+	letter-spacing:-0.057em;
+	font-family:trebuchet ms, sans serif;
+	text-transform:capitalize;
+}
+.nav ul {
+	width:118%;
+	padding-bottom:9px;
+	list-style-type:decimal-leading-zero !important;
+	color:#000;
+	font-size:15px;
+	font-weight:bold;
+	font-family:trebuchet ms, arial, sans serif;
+}
+.nav ul li a {
+	color:#f29400;
+	text-decoration:none !important;
+	margin:-5px;
+	font-family:trebuchet ms, century gothic, arial, helvetica, sans serif;
+	text-transform:capitalize;
+	font-size:17px;
+	display:block;
+	font-weight:lighter;
+}
+.nav ul li a:hover {
+	background-color:#f29400;
+	color:#FFF;
+}
+.nav ul li a i {
+	display:none;
+}
+.nav ul li a:hover i {
+	display:inline;
+	line-height:7px;
+	font-family:georgia, serif;
+	font-size:13px;
+	color:#000;
+	text-transform:lowercase;
+	padding-left:3px;
+	letter-spacing:-0.057em;
+	font-weight:bold;
+	word-spacing:0.12em;
+}
+.journalbox .journalbottom {
+	text-align:right;
+	font-size:11px;
+	margin-right:-25px;
+	margin-top:20px;
+}
+.journalbottom a.commentslink {
+	color:#000;
+	text-decoration:none;
+}
+.journalbottom a.prevlink {
+	color:#000;
+	text-decoration:none;
+}
+.journalbottom a:hover.prevlink {
+	color:#f29400 !important;
+	text-decoration:none;
+}
+.journalbottom a:hover.commentslink {
+	color:#f29400 !important;
+	text-decoration:none;
+	position:relative;
+}
+.featureframe {
+	display:block;
+	background-color:#121212;
+	min-height:225px;
+	height:auto;
+	width:100%;
+	position:relative;
+	border-bottom:thin solid #f29400;
+	overflow:auto;
+}
+.featureframe p {
+	color:#ffffff;
+	padding:25px;
+	text-align:center;
+	background-position:center;
+	height:auto;
+	width:auto;
+	display:box;
+	margin-top:20px !important;
+}
+.featureframe .featuretittle {
+	color:#ffffff;
+	text-align:left;
+	display:block;
+	margin-left:25px;
+	margin-top:25px;
+	font-size:1.4em;
+	font-family:trebuchet ms, century gothic, arial, helvetica, sans serif;
+	font-weight:bolder;
+	letter-spacing:-0.075em;
+	border-bottom:1px dotted;
+	border-color:#e49641;
+	padding-bottom:5px;
+	text-transform:capitalize;
+}
+.feature {
+	text-align:center;
+}

@@ -1,0 +1,103 @@
+
+
+TEXT (please do not remove the text inside the <em> tags. It is the link which points to the deviation to people to download this CSS Pack)
+
+----------------------------------------------------------------------------------------------------
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+
+<em><strong><a href="http://bobbyperux.deviantart.com/art/Wood-CSS-Pack-103088022">Get this gallery CSS</a></strong></em>
+
+
+----------------------------------------------------------------------------------------------------
+
+
+
+STYLE
+
+----------------------------------------------------------------------------------------------------
+
+
+
+body {
+background:url(http://img511.imageshack.us/img511/9076/gallerybackuq4.jpg);
+}
+
+
+
+div.folderview-top h2 {
+    color:#ffffff;
+    padding-top: 35px;
+    padding-left: 10px;
+    font-weight: lighter;
+    letter-spacing: -0.056em;
+    font-size:2.9em;
+    line-height:1.078em;
+    text-align: -moz-left;    
+    font-family:century gothic, arial black, helvetica, sans serif;
+    margin-top: 25px;
+    font-weight:bold;  
+}
+
+
+div.folderview-art span a {
+    color: #000000;
+    font-size: 10px;
+    text-decoration:none !important;
+    font-family: arial, helvetica, trebuchet ms, sans serif;
+    
+}
+
+div.description {
+     color: #000000;
+     font-size: 11px;
+     overflow: hidden;
+     float: left;
+     margin-left: 10px;
+     display: block;  
+     text-align: -moz-left;
+     font-family:trebuchet ms, century gothic, arial, helvetica, sans serif; 
+     background:url(http://img111.imageshack.us/img111/3459/woobackcontents2jx3.png) repeat;
+     padding:20px;
+     border-bottom:1px solid #c4893f;
+     font-weight:bold;
+     margin-top:20px;
+     
+}
+
+div.description a {
+    color: #f29400;
+    text-decoration:none !important;
+}
+
+div.description a:hover {
+    color: #fff;
+    text-decoration:none !important;
+}
+
+.folderview-art .stream span:hover{
+background: url(http://img111.imageshack.us/img111/3459/woobackcontents2jx3.png) center repeat;
+
+}
+
+
+.folderview-art .stream span .shadow{
+background:transparent !important;
+border:none !important;
+}
+
+.folderview-art .stream span a:hover{
+color:#f29400;
+}
+
+div.artzone{
+border-left:3px dotted #000000;
+margin-left:50px;
+}
+
+
+----------------------------------------------------------------------------------------------------

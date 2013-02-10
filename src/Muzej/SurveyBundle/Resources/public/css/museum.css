@@ -1,0 +1,67 @@
+/* 
+    Document   : vdcsasa
+    Created on : 28.7.2012, 5:27:14
+    Author     : uros
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+h1 { font-family: 'Schoolbell', arial, serif; }
+
+
+
+.papir {
+    background-image:url('http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-7.jpg'); 
+    padding: 55px;
+
+
+
+    -webkit-box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.8) ;
+    -o-box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.8) ;
+    -moz-box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.8) ;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.8) ;
+
+
+
+
+    border-width:25px 30px 10px 20px;
+    -moz-border-image:url("../../images/wood/border.png") 25 30 10 20 repeat;
+    -webkit-border-image:url("../../images/wood/border.png") 25 30 10 20 repeat;
+    border-image:url("../../images/wood/border.png") 25 30 10 20 repeat;
+
+
+
+}
+
+#round
+{
+    -moz-border-image:url('../../images/wood/border.png') 30 30 round; /* Old Firefox */
+    -webkit-border-image:url('../../images/wood/border.png') 30 30 round; /* Safari */
+    -o-border-image:url('../../images/wood/border.png') 30 30 round; /* Opera */
+    border-image:url('../../images/wood/border.png') 30 30 round;
+}
+
+#stretch
+{
+    -moz-border-image:url(border.png) 30 30 stretch; /* Old Firefox */
+    -webkit-border-image:url(border.png) 30 30 stretch; /* Safari */
+    -o-border-image:url(border.png) 30 30 stretch; /* Opera */
+    border-image:url(border.png) 30 30 stretch;
+}
+
+.roundtop {
+    background-image: url(rounded-top.jpg);
+    width: 315px;
+    height: 10px;
+}
+.roundside {
+    background-image: url(rounded-sides.jpg);
+    background-repeat: repeat-y;
+    width: 315px;
+    text-align: center;
+}
+.roundbottom {
+    background-image: url(rounded-bottom.jpg);
+    width: 315px;
+    height: 10px;
+}

@@ -11,7 +11,7 @@ class SurveyType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('name', 'choice', array(
-                    'choices' => array('prvo nadstopje'=>array('trgovina' => 'Trgovina', 'gostilna' => 'Gostilna'),'drugo nadstopje'=>array('depo1'=>'Depo1 na gradu','depo2'=>'Depo2 na gradu','strazarnica'=>'Stražarnica','foit1'=>'Foitova zbirka 1','foit2'=>'Foitova zbirka 2')),
+                    'choices' => array('klet'=>array('depo1'=>'Depo1 na gradu','depo2'=>'Depo2 na gradu'), 'pritličje'=>array('trgovina' => 'Trgovina', 'gostilna' => 'Gostilna','strazarnica'=>'Stražarnica','foit1'=>'Foitova zbirka 1','foit2'=>'Foitova zbirka 2','foit3'=>'Foitova zbirka 3'),'prvo nadstopje'=>array()),
                     'attr' => array('class' => 'span2 chzn-select')
                 ))  
                  ->add('date', 'date', array(

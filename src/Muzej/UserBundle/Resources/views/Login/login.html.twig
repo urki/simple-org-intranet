@@ -4,7 +4,7 @@
 {{ parent() }}
 <link rel="stylesheet" href="{{ asset('bundles/user/css/login.css') }}" />
 {% endblock stylesheets %}
-
+{% block body %}
 {% block content %}
   {{ parent() }}
 
@@ -41,3 +41,5 @@
      <script type="text/javascript" src="{{ asset('bundles/user/js/bootstrap-alert.js') }}"></script> 
 {% endblock contentfoot %} 
 #}
+
+{% endblock body %}
