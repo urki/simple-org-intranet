@@ -31,6 +31,21 @@ class SurveyController extends Controller
         ));
     }
 
+     /**
+     * List of places and data per day survey.
+     *
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('SurveyBundle:Survey')->findAll();
+
+        return $this->render('SurveyBundle:Survey:index.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+        
     /**
      * Finds and displays a Survey entity.
      *
