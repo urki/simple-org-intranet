@@ -9,6 +9,7 @@ use Muzej\SurveyBundle\Entity\Survey;
 use Muzej\SurveyBundle\Form\SurveyType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Survey controller.
