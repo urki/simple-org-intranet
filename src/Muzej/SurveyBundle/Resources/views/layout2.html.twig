@@ -82,24 +82,21 @@
 
       <hr>
 
-   
-
-
-
+      
 {% endblock contentheader %}
 {% block content %}{% endblock content %}
 {% block contentfoot %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('bundles/survey/js/chosen.jquery.js') }}"></script>
-     <script type="text/javascript" src="{{ asset('bundles/survey/js/jquery.js') }}"></script>
+     <script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>
+   {# @TODO how to modify to use just one jquery - the last one? no 1.6.4 #}
+    <script type="text/javascript" src="{{ asset('bundles/survey/js/jquery.js') }}"></script>
+    
     <script type="text/javascript" src="{{ asset('bundles/survey/js/bootstrap-collapse.js') }}"></script>   
     
-
-  
-    
-    <script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>
 {% endblock contentfoot %} 
     
+   
 
     {#
   

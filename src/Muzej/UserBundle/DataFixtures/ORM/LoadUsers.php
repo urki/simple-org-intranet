@@ -20,11 +20,13 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface, Serializab
     public function load(ObjectManager $manager) {
         $user = new User();
         $user->setUsername('user');
+        $user->setEmail('user@me.com');
         $user->setPassword($this->encodePassword($user, 'user'));
         $manager->persist($user);
 
         $admin = new User();
         $admin->setUsername('admin');
+        $admin->setEmail('admin@me.com');
         $admin->setPassword($this->encodePassword($admin, 'admin'));
         $admin->setRoles(array('ROLE_ADMIN'));
         $admin->setIsActive(true);

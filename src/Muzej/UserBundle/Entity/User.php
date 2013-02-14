@@ -5,6 +5,7 @@ namespace Muzej\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+
 /**
  * User
  *
@@ -59,6 +60,13 @@ class User implements AdvancedUserInterface {
      * @ORM\Column(type="boolean")
      */
     private $isActive = true;
+
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
     public function __construct() {
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
@@ -176,6 +184,14 @@ class User implements AdvancedUserInterface {
 
     public function isEnabled() {
         return $this->getIsActive();
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
     }
 
 }
