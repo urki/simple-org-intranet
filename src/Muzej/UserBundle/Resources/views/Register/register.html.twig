@@ -1,0 +1,26 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'User registration'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
+<section class="main-block">
+    <article>
+        <section>
+           
+            <form action="{{ path('user_register') }}" method="POST">
+                    {{ form_errors(form) }}
+                    {{ form_row(form.username) }}
+                    {{ form_row(form.email) }}
+                    {{ form_errors(form.plainPassword) }}
+                    {{ form_row(form.plainPassword.first, {'label':'password'}) }}
+                    {{ form_row(form.plainPassword.second, {'label':'repeat password'}) }}  
+                    {{ form_rest(form) }}
+                    <input type="submit" value="Register" formnovalidate />
+             </form>
+
+            </section></article></section>
+{% endblock content %}

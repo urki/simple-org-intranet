@@ -3,6 +3,7 @@
 namespace Muzej\SurveyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Survey
@@ -48,6 +49,13 @@ class Survey
      * @var float
      *
      * @ORM\Column(name="temperature", type="decimal")
+     * @Assert\NotBlank(message="Enter temperature")
+     * @Assert\Range(
+     *      min = "-5",
+     *      max = "60",
+     *      minMessage = "Minimum is -5 degrees Celsius",
+     *      maxMessage = "Maximum is 60 degrees Celsius"
+     * )
      */
     private $temperature;
 
@@ -55,6 +63,13 @@ class Survey
      * @var float
      *
      * @ORM\Column(name="moisture", type="decimal")
+     * @Assert\NotBlank(message="Enter moisture")
+     * @Assert\Range(
+     *      min = "0",
+     *      max = "100",
+     *      minMessage = "Minimum is 0%",
+     *      maxMessage = "Maximum is 100%"
+     * )
      */
     private $moisture;
 

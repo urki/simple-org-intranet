@@ -1,8 +1,0 @@
-Muzej\SurveyBundle\Entity\Survey:
-    properties:
-        temperature:
-            - Max: { limit: 60, message: Največji dovoljne vnos je 60 stopinj celzija}
-            - Min: { limit: -5,  message: Najmanjđi dovoljeni vnos je -5 stopinj celzija}
-        moisture:
-            - Max: { limit: 100, message: Največji dovoljne vnos je 100% }
-            - Min: { limit: 0,  message: Najmanjđi dovoljeni vnos je 0% }

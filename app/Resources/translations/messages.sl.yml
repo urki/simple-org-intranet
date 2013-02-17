@@ -2,7 +2,11 @@
 "Company": "Muzej Velenje"
 "Bad credentials": "Napačno ime ali geslo"
 "name": "Ime"
+"Username": "Uporabniško ime"
 "password": "Geslo"
+"Password": "Geslo"
+"repeat password": "Še enkrat vnesi geslo"
+"Email": "E-poštni naslov"
 "Login": "Prijava"
 "Logout": "Odjava"
 "Survey": "Popis"
@@ -10,3 +14,9 @@
 "About us": "O Muzeju"
 "Contacts": "Kontakti"
 "Home": "Domov"
+"Show survey insert": "Pogled vnosa"
+"Insert was successfull":  "Vnos je bil uspešen!"
+"User registration": "Registracija uporabnika"
+"Registration went super well!": "Registracija uporabnika je bila uspešna"
+"Edit":
+

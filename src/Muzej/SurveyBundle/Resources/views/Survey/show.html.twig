@@ -1,4 +1,11 @@
-<h1>Survey</h1>
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Show survey insert'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
 
 <table class="record_properties">
     <tbody>
@@ -47,3 +54,6 @@
         </form>
     </li>
 </ul>
+
+{% endblock content %}
+ 

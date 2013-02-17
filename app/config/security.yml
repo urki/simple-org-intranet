@@ -12,7 +12,7 @@ security:
 
     providers:
         employee_in_database:
-            entity: { class: UserBundle:User, property: username }
+            entity: { class: UserBundle:User }
 
     firewalls:
           secured_area:

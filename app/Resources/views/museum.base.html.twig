@@ -24,31 +24,38 @@
         {% endblock %}
         </head>
         <body>
-            <div id="contentheader">{% block contentheader %}{% endblock contentheader %}</div>
-            <div id="content">{% block content %}<h1>Hello, world!</h1>{% endblock content%}
+               {% if app.session.hasFlash('success') %}
+                <div class="alert-message success">
+                {{ app.session.getFlash('success') }}
+                    </div>
+        {% endif %}
+
+
+                    <div id="contentheader">{% block contentheader %}{% endblock contentheader %}</div>
+                    <div id="content">{% block content %}<h1>Hello, world!</h1>{% endblock content%}
               {#  for javascript and other things directly after contetnt is thi contentfoot  #}
               {% block contentfoot %}{% endblock contentfoot %} 
-            </div>
-            <div id="footer">
+                        </div>
+                        <div id="footer">
             {% block footer %}
-                    &copy; Copyright 2011 by <a href="http://root.si">ROOT d.o.o</a>.
+                                &copy; Copyright 2011 by <a href="http://root.si">ROOT d.o.o</a>.
             {% endblock %}
-                </div>
+                            </div>
         {% block javascripts %}
-                
-                <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
-                <script>
-                      $(function() {
-                         $( ".datepicker" ).datepicker({ dateFormat: "yyyy-mm-dd", appendText: "(Dan/Mesec/Leto)", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+1m", minDate: "-1m" });
-                      });
-                      $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true});
-                    </script>
+
+                            <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
+                            <script>
+                                  $(function() {
+                                     $( ".datepicker" ).datepicker({ dateFormat: "yyyy-mm-dd", appendText: "(Dan/Mesec/Leto)", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+1m", minDate: "-1m" });
+                                  });
+                                  $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true});
+                                </script>
         {% endblock %}
 
 
 
-                </body>
-            </html>
+                            </body>
+                        </html>
 
 
 

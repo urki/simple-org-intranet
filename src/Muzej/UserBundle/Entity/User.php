@@ -5,14 +5,18 @@ namespace Muzej\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-
+use \Serializable;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * User
  *
  * @ORM\Table(name="employee")
  * @ORM\Entity(repositoryClass="Muzej\UserBundle\Entity\UserRepository")
+ * @UniqueEntity(fields="email", message="That email is taken!")
+ * @UniqueEntity(fields="username", message="That username is taken!")
  */
-class User implements AdvancedUserInterface {
+class User implements AdvancedUserInterface, \Serializable {
 
     /**
      * @var integer
@@ -27,6 +31,8 @@ class User implements AdvancedUserInterface {
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)
+     * @Assert\NotBlank(message="Enter username")
+     * 
      */
     private $username;
 
@@ -65,8 +71,22 @@ class User implements AdvancedUserInterface {
      * @var string
      * 
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
+    
+  
+    /**
+     *
+     * @var string
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *          pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/",
+     *      message="Please use at least on upper case letter, one lower case letter, and one number"
+     * )
+     */
+    private $plainPassword;
 
     public function __construct() {
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
@@ -159,7 +179,7 @@ class User implements AdvancedUserInterface {
     }
 
     public function eraseCredentials() {
-        
+        $this->setPlainPassword(null);
     }
 
     public function getIsActive() {
@@ -192,6 +212,25 @@ class User implements AdvancedUserInterface {
 
     public function setEmail($email) {
         $this->email = $email;
+    }
+
+    public function serialize() {
+        return serialize(array(
+                    'id' => $this->getId()
+                ));
+    }
+
+    public function unserialize($serialized) {
+        $data = unserialize($serialized);
+        $this->id = $data['id'];
+    }
+    
+      public function getPlainPassword() {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword) {
+        $this->plainPassword = $plainPassword;
     }
 
 }

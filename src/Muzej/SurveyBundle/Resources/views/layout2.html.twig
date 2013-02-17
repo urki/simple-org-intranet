@@ -64,11 +64,11 @@
 {% endblock %}
 
 {% block contentheader %}
-
+{{ parent() }}
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">{{ 'Home'|trans }}</a></li>
+          <li class="active"><a href="{{ path('survey') }}">{{ 'Home'|trans }}</a></li>
           <li><a href="#">{{ 'About us'|trans }}</a></li>
           <li><a href="#">{{ 'Contacts'|trans }}</a></li>
           {% if is_granted('ROLE_USER') %}
