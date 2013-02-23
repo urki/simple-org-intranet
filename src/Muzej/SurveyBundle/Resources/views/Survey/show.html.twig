@@ -35,7 +35,7 @@
         </tr>
     </tbody>
 </table>
-
+{% if app.user == entity.owner %}
 <ul class="record_actions">
     <li>
         <a href="{{ path('survey') }}">
@@ -48,12 +48,20 @@
         </a>
     </li>
     <li>
-        <form action="{{ path('survey_delete', { 'id': entity.id }) }}" method="post">
+        
+            <form action="{{ path('survey_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+                    <button type="submit">Delete</button>
+            </form>
+    
+      
+
+
+
+            </li>
+        </ul>
+    {% endif %}
+  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% endif %}
 
 {% endblock content %}
- 

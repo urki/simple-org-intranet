@@ -3,7 +3,7 @@
 namespace Muzej\SurveyBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Muzej\SurveyBundle\Controller\Controller;
 use Muzej\SurveyBundle\Entity\Survey;
 use Muzej\SurveyBundle\Form\SurveyType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,10 +22,12 @@ class SurveyController extends Controller {
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getEntityManager();
-       // $userRepo = $em->getRepository('UserBundle:User');
-       // var_dump($userRepo->findOnebyUsernameOrEmail('user'));
-       // die;
-        $entities = $em->getRepository('SurveyBundle:Survey')->findAll();
+        // $userRepo = $em->getRepository('UserBundle:User');
+        // var_dump($userRepo->findOnebyUsernameOrEmail('user'));
+        // die;
+        $entities = $em->getRepository('SurveyBundle:Survey')
+                ->getTodaySurvey()
+        ;
 
         return $this->render('SurveyBundle:Survey:index.html.twig', array(
                     'entities' => $entities,
@@ -91,12 +93,12 @@ class SurveyController extends Controller {
 
 
         if ($form->isValid()) {
+            $entity->setOwner($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-         $request->getSession()->setFlash('success', 'Insert was successfull');
+            $request->getSession()->setFlash('success', 'Insert was successfull');
             return $this->redirect($this->generateUrl('survey_show', array('id' => $entity->getId())));
-           
         }
 
         return $this->render('SurveyBundle:Survey:new.html.twig', array(
@@ -174,6 +176,8 @@ class SurveyController extends Controller {
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Survey entity.');
             }
+               $this->checkOwnerSecurity($entity);
+
 
             $em->remove($entity);
             $em->flush();
@@ -187,6 +191,17 @@ class SurveyController extends Controller {
                         ->add('id', 'hidden')
                         ->getForm()
         ;
+    }
+
+    private function checkOwnerSecurity(Survey $survey) {
+
+        $user = $this->getUser();
+        
+     
+
+        if ($user != $survey->getOwner()) {
+            throw new AccessDeniedException('You are not the owner!!!!');
+        }
     }
 
 }

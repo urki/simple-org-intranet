@@ -12,5 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class SurveyRepository extends EntityRepository
 {
-  
+  public function getTodaySurvey(){
+       return $this
+                ->createQueryBuilder('e')
+                ->addOrderBy('e.time', 'DESC')
+                ->andWhere('e.date>= :now')
+                ->GroupBy('e.name')
+                ->setParameter('now', new \DateTime('today'))
+                ->getQuery()
+                ->execute()
+        ;
+  }
+          
 }

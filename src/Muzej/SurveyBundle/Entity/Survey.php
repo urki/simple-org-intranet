@@ -4,6 +4,7 @@ namespace Muzej\SurveyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Muzej\UserBundle\Entity\User;
 
 /**
  * Survey
@@ -11,9 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="climatic_survey")
  * @ORM\Entity(repositoryClass="Muzej\SurveyBundle\Entity\SurveyRepository")
  */
-class Survey
-{
-    
+class Survey {
+
     /**
      * @var integer
      *
@@ -37,14 +37,13 @@ class Survey
      */
     private $time;
 
-     /**
+    /**
      * @var \Date
      *
      * @ORM\Column(name="date", type="date")
      */
     private $date;
-    
-    
+
     /**
      * @var float
      *
@@ -79,7 +78,7 @@ class Survey
      * @ORM\Column(name="note", type="text", nullable=true)
      */
     private $note;
-    
+
     /**
      * @ORM\Column(name="created_at", type="datetime")
      */
@@ -88,21 +87,42 @@ class Survey
   
     
     /**
+     *
+     * @ORM\ManyToOne(targetEntity="Muzej\UserBundle\Entity\User", cascade={"remove"}, inversedBy="survey") 
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     * 
+     */
+    protected $owner;
+
+    public function getCreated_at() {
+        return $this->created_at;
+    }
+
+    public function setCreated_at($created_at) {
+        $this->created_at = $created_at;
+    }
+
+    public function getOwner() {
+        return $this->owner;
+    }
+
+    public function setOwner(User $owner) {
+        $this->owner = $owner;
+    }
+
+    /**
      * @ORM\PrePersist
      */
     public function setCreated_atValue() {
-        $this->created_at= new \DateTime();
+        $this->created_at = new \DateTime();
     }
-   
-  
-    
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -112,10 +132,9 @@ class Survey
      * @param string $name
      * @return Survey
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -124,8 +143,7 @@ class Survey
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -135,10 +153,9 @@ class Survey
      * @param \DateTime $time
      * @return Survey
      */
-    public function setTime($time)
-    {
+    public function setTime($time) {
         $this->time = $time;
-    
+
         return $this;
     }
 
@@ -147,8 +164,7 @@ class Survey
      *
      * @return \DateTime 
      */
-    public function getTime()
-    {
+    public function getTime() {
         return $this->time;
     }
 
@@ -158,11 +174,9 @@ class Survey
      * @param float $temperature
      * @return Survey
      */
-    
-     public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
-    
+
         return $this;
     }
 
@@ -171,8 +185,7 @@ class Survey
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -182,13 +195,9 @@ class Survey
      * @param float $temperature
      * @return Survey
      */
-    
-    
-    
-    public function setTemperature($temperature)
-    {
+    public function setTemperature($temperature) {
         $this->temperature = $temperature;
-    
+
         return $this;
     }
 
@@ -197,8 +206,7 @@ class Survey
      *
      * @return float 
      */
-    public function getTemperature()
-    {
+    public function getTemperature() {
         return $this->temperature;
     }
 
@@ -208,10 +216,9 @@ class Survey
      * @param float $moisture
      * @return Survey
      */
-    public function setMoisture($moisture)
-    {
+    public function setMoisture($moisture) {
         $this->moisture = $moisture;
-    
+
         return $this;
     }
 
@@ -220,8 +227,7 @@ class Survey
      *
      * @return float 
      */
-    public function getMoisture()
-    {
+    public function getMoisture() {
         return $this->moisture;
     }
 
@@ -231,10 +237,9 @@ class Survey
      * @param string $note
      * @return Survey
      */
-    public function setNote($note)
-    {
+    public function setNote($note) {
         $this->note = $note;
-    
+
         return $this;
     }
 
@@ -243,8 +248,8 @@ class Survey
      *
      * @return string 
      */
-    public function getNote()
-    {
+    public function getNote() {
         return $this->note;
     }
+
 }

@@ -12,8 +12,10 @@ use Muzej\UserBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Serializable;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class LoadUsers implements FixtureInterface, ContainerAwareInterface, Serializable {
+class LoadUsers extends AbstractFixture implements  ContainerAwareInterface, OrderedFixtureInterface, Serializable {
 
     private $container;
 
@@ -24,6 +26,8 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface, Serializab
         $user->setPassword($this->encodePassword($user, 'user'));
         $manager->persist($user);
 
+        $this->addReference('user-user', $user);
+                
         $admin = new User();
         $admin->setUsername('admin');
         $admin->setEmail('admin@me.com');
@@ -52,7 +56,11 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface, Serializab
 
     public function unserialize($serialized) {
         $data = unserialize($serialized);
-        $this->id=$data['id'];
+        $this->id = $data['id'];
+    }
+
+    public function getOrder() {
+        return 10;
     }
 
 }

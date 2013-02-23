@@ -2,7 +2,7 @@
 
 namespace Muzej\UserBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Muzej\SurveyBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,6 +55,7 @@ class RegisterController extends Controller {
         $providerKey = 'secured_area'; // your firewall name
         $token = new UsernamePasswordToken($user, null, $providerKey, $user->getRoles());
 
-        $this->container->get('security.context')->setToken($token);
+       $this->getSecurityContext()->setToken($token);
+  
     }
 }
