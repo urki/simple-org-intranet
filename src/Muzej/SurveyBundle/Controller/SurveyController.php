@@ -6,15 +6,50 @@ use Symfony\Component\HttpFoundation\Request;
 use Muzej\SurveyBundle\Controller\Controller;
 use Muzej\SurveyBundle\Entity\Survey;
 use Muzej\SurveyBundle\Form\SurveyType;
+use Muzej\SurveyBundle\Form\SurveyTip;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Muzej\UserBundle\Entity\User;
 
 /**
  * Survey controller.
  *
  */
 class SurveyController extends Controller {
+
+    /**
+     * @Route("/new/{default}", name="insert_new_survey_with_name")
+     * @Template()
+     * 
+     */
+    
+    public function newInsertAction($default = 'empty') {
+
+        $entity = new Survey();
+        // if($default!='empty'){
+
+        $entity->setName($default);
+        // $namearray=array($default=>'name');
+        //  $namearray=array('name'=>$default);
+        //   }
+
+        $form = $this->createFormBuilder($entity)
+                ->add('name', 'text')
+                ->add('temperature')
+                ->add('moisture')
+                ->add('date')
+                ->add('time')
+                ->add('note')
+                ->getForm()
+        ;
+
+
+        return $this->render('SurveyBundle:Survey:newInsert.html.twig', array(
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
+    }
 
     /**
      * Lists all Survey entities.
@@ -72,12 +107,21 @@ class SurveyController extends Controller {
      * Displays a form to create a new Survey entity.
      *
      */
-    public function newAction() {
+    public function newAction($default = 'empty') {
         $entity = new Survey();
-        $form = $this->createForm(new SurveyType(), $entity);
+        if ($default != 'empty') {
+            $entity = new Survey();
+            $entity->setName($default);
+            $form = $this->createForm(new SurveyTip(), $entity);
+            // $namearray=array($default=>'name');
+            //  $namearray=array('name'=>$default);
+        } else {
+            $form = $this->createForm(new SurveyType(), $entity);
+        }
 
         return $this->render('SurveyBundle:Survey:new.html.twig', array(
                     'entity' => $entity,
+                    'default' => $default,
                     'form' => $form->createView(),
                 ));
     }
@@ -88,7 +132,7 @@ class SurveyController extends Controller {
      */
     public function createAction(Request $request) {
         $entity = new Survey();
-        $form = $this->createForm(new SurveyType(), $entity);
+        $form = $this->createForm(new SurveyTip(), $entity);
         $form->bind($request);
 
 
@@ -176,7 +220,7 @@ class SurveyController extends Controller {
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Survey entity.');
             }
-               $this->checkOwnerSecurity($entity);
+            $this->checkOwnerSecurity($entity);
 
 
             $em->remove($entity);
@@ -196,8 +240,8 @@ class SurveyController extends Controller {
     private function checkOwnerSecurity(Survey $survey) {
 
         $user = $this->getUser();
-        
-     
+
+
 
         if ($user != $survey->getOwner()) {
             throw new AccessDeniedException('You are not the owner!!!!');

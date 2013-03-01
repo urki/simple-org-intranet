@@ -7,9 +7,14 @@ survey_show:
     defaults: { _controller: "SurveyBundle:Survey:show" }
 
 survey_new:
-    pattern:  /new
+    pattern:   /new
     defaults: { _controller: "SurveyBundle:Survey:new" }
 
+insert_new_survey_with_name:
+    pattern:   /new/{default}
+    defaults: { _controller: "SurveyBundle:Survey:new" }
+
+     
 survey_create:
     pattern:  /create
     defaults: { _controller: "SurveyBundle:Survey:create" }

@@ -16,16 +16,6 @@
     
 
            
-  {% if default=='empty' %}   
-             {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span3 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='../../images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
- 
-      {% else %}         
-             <h1>{{ default }}</h1>
- {% endif %}
-
-    
-              
-               
   {{ form_row(form.temperature, { 'label' : 'Temperatura' , 'attr':{'class':'span3'} }) }}
     {{ form_row(form.moisture, { 'label' : 'Vlaga' , 'attr':{'class':'span3'} }) }}
     

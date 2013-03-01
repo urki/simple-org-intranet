@@ -7,40 +7,47 @@
   {{ parent() }}
 
 
- 
-  
+
+
 <div class="container">
 
     <p>
-        
-     
+
+
     <style>
-       /*označevanje z modro barvo tistih tabelnih vrstic ki so hover z miško
-=============================================================*/
-.records_list tbody tr:hover td,
-.records_list  tbody tr:hover th {
-  background-color: #F2F5A9;
-   opacity:0.7;
-  filter:alpha(opacity=90); 
-  
-}
+            /*označevanje z modro barvo tistih tabelnih vrstic ki so hover z miško
+     =============================================================*/
+            .records_list tbody tr:hover td,
+            .records_list  tbody tr:hover th {
+                background-color: #F2F5A9;
+                opacity:0.7;
+                filter:alpha(opacity=90); 
+
+            }
         </style>
- 
-<table class="records_list  table-hover">
-    
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Prostor</th>
-            <th>Time</th>
-            <th>Temperature</th>
-            <th>Moisture</th>
-            <th>Note</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+
+        <table class="records_list  table-hover">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prostor</th>
+                    <th>Time</th>
+                    <th>Temperature</th>
+                    <th>Moisture</th>
+                    <th>Note</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+   {# Ta je original ki dela
+
+     
     {% for entity in entities %}
+     
         <tr>
             <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.name }}</td>
@@ -60,16 +67,87 @@
             </td>
         </tr>
     {% endfor %}
-    </tbody>
-</table>
+        
+        
+        #}
+
+     {% set places =['kapela','zbirka4145','mastodont','rondelaS','rondelaZ','depo1','depo2','strazarnica','foit2','foit4','trgovina',
+                                                          'gostilna' ,
+                                                          'prehodne1',
+                                                          'prehodne2',
+                                                          'županova1',
+                                                          'županova2',
+                                                          'nastajanjeV1',
+                                                          'nastajanjeV2',
+                                                          'nastajanjeV3', 
+                                                          'romanika1',
+                                                          'romanika2',
+                                                          'romanika3',
+                                                           'učilnica',                                                               
+                                                           'arhiv'] %}  
+
+     {% for place in places %}
+
+                <tr>
+                   
+                    <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i class="icon-pencil"></i>&nbsp;</a>
+                       <td><strong>{{ place }}</strong></td>  
+                       
+                    </td>
+
+
+             {% for entity in entities %}
+             {% if entity.name==place  %}
+                    <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                    <td>{% if entity.time %}{{ entity.time|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ entity.temperature }}</td>
+                    <td>{{ entity.moisture }}</td>
+                    <td>{{ entity.note }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('survey_new') }}/{{ place }}">new</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('survey_show', { 'id': entity.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('survey_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+
+            {% endif %}
+             {% endfor %}
+                </tr>
+        {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </tbody>
+        </table>
 
 
         <a href="{{ path('survey_new') }}" class="btn btn-large btn-warning disabled">Nov vnos</a>
-        
-  
 
 
-    
+
+
+
 
     </p>
 </div>
