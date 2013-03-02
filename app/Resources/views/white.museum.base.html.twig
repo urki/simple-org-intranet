@@ -33,7 +33,7 @@
                     {% block message %}
                       {% if app.session.hasFlash('success') %}
                          <div class="alert alert-success">
-                        {{ app.session.getFlash('success') }}
+                        {{ app.session.getFlash('success')|trans }}
                          </div>
                       {% endif %}
                     {% endblock message %}
@@ -46,7 +46,7 @@
             </div>
             <div id="footer">
              {% block footer %}
-                                   &copy; Copyright 2011 by <a href="http://root.si">ROOT d.o.o</a>.
+                                   &copy; Copyright 2011 by <a href="https://plus.google.com/100636826027348519681/posts">Uroš</a>.
              {% endblock footer%}
             </div>
           </div>

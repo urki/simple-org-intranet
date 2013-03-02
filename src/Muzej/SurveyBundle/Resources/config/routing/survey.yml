@@ -13,8 +13,7 @@ survey_new:
 insert_new_survey_with_name:
     pattern:   /new/{default}
     defaults: { _controller: "SurveyBundle:Survey:new" }
-
-     
+    
 survey_create:
     pattern:  /create
     defaults: { _controller: "SurveyBundle:Survey:create" }

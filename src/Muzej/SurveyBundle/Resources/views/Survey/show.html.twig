@@ -10,27 +10,27 @@
 <table class="record_properties">
     <tbody>
         <tr>
-            <th>Id</th>
+            <th>{{ 'Id'|trans }}:</th>
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Name</th>
+            <th>{{ 'Name'|trans }}:</th>
             <td>{{ entity.name }}</td>
         </tr>
         <tr>
-            <th>Time</th>
-            <td>{{ entity.time|date('Y-m-d H:i:s') }}</td>
+            <th>{{ 'Time'|trans }}:</th>
+            <td>{{ entity.time|date('d/m/Y H:i:s') }}</td>
         </tr>
         <tr>
-            <th>Temperature</th>
+            <th>{{ 'Temperature'|trans }}:</th>
             <td>{{ entity.temperature }}</td>
         </tr>
         <tr>
-            <th>Moisture</th>
+            <th>{{ 'Moisture'|trans }}:</th>
             <td>{{ entity.moisture }}</td>
         </tr>
         <tr>
-            <th>Note</th>
+            <th>{{ 'Note'|trans }}:</th>
             <td>{{ entity.note }}</td>
         </tr>
     </tbody>
@@ -39,19 +39,24 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('survey') }}">
-            Back to the list
+            {{ 'Back to the list' |trans }}
         </a>
     </li>
     <li>
         <a href="{{ path('survey_edit', { 'id': entity.id }) }}">
-            Edit
+            {{ 'Edit'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('survey_new', { 'id': entity.id }) }}">
+           {{ 'New'|trans }}
         </a>
     </li>
     <li>
         
             <form action="{{ path('survey_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-                    <button type="submit">Delete</button>
+                    <button type="submit">{{ 'Delete'|trans }}</button>
             </form>
           </li>
         </ul>
