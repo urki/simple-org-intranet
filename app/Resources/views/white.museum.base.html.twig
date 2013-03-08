@@ -4,7 +4,7 @@
     <head>
         {% block head %}
             <meta charset="UTF-8" />
-            <title>{% block title %}Welcome!{% endblock %}</title>
+            <title>{% block title %}{{ 'Welcome!'|trans }}{% endblock %}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="description" content="">
             <meta name="author" content="Uroš Gabrovec">
@@ -22,7 +22,8 @@
             <![endif]-->
            {% endblock stylesheets %}
             <!-- Fav and touch icons -->
-            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            <link rel="icon" type="image/x-icon" href="{{ asset('bundles/survey/favicon.ico') }}" />
+            
         {% endblock head %}
     </head>
     <body>
@@ -46,7 +47,10 @@
             </div>
             <div id="footer">
              {% block footer %}
-                                   &copy; Copyright 2011 by <a href="https://plus.google.com/100636826027348519681/posts">Uroš</a>.
+                    
+                    
+                                   &copy; {{ 'Copyright 2011 by'|trans }} <a href="http://www.muzej-velenje.si"> Muzej Velenje</a>.
+                                   {{ 'Created by'|trans }}<a href="https://plus.google.com/100636826027348519681/posts"> Uroš</a>
              {% endblock footer%}
             </div>
           </div>
@@ -54,7 +58,7 @@
               <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
               <script>
                   $(function() {
-                     $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", appendText: "(Dan/Mesec/Leto)", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+1m", minDate: "-1m" });
+                     $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", appendText: "", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+6d", minDate: "-6d" });
                   });
               </script>
           {% endblock javascripts %}

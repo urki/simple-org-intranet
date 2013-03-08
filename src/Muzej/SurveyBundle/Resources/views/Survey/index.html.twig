@@ -1,9 +1,9 @@
 {% extends 'SurveyBundle::layout2.html.twig' %}
 
-{% set now="now"|date("d/m/Y") %}
+{% set now="now"|date("d.m.Y") %}
 
 {% set title = 'Survey'|trans  %}
-{% set subtitle = now %}
+{% set subtitle = now  %}
 
 
 
@@ -48,13 +48,15 @@
                 width: auto;
             }
         </style>
-
+     
+        
         <table class="table table-hover table-condensed table-nonfluid">
 
             <thead>
-
+                                                             
                 <tr>    
-                    <th> <a href="{{ path('survey_new') }}" class="label label-success label-white">{{ "New"|trans }}</a></th>
+                  
+                    <th> <a href="{{ path('survey_new') }}" class="badge badge-success"><i data-toggle="tooltip" title="{{ "insert new action"|trans }}"  class="icon-pencil icon-white"></i></a></th>
                     <th>{{ "Place"|trans }}</th>
                    {#   <th>{{ "Id"|trans }}</th>
                   <th>{{ "Time"|trans }}</th>
@@ -66,14 +68,11 @@
             </thead>
             <tbody>
 
-
-
-
      {% for place in places %}
 
                 <tr>
 
-                    <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "new"|trans }}" class="icon-pencil"></i>&nbsp;</a>
+                    <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "insert new action"|trans }} {{ "for place"|trans }} {{ place|trans }}" class="icon-pencil"></i>&nbsp;</a>
                     <td><strong>{{ place }}</strong></td>  
 
                     </td>

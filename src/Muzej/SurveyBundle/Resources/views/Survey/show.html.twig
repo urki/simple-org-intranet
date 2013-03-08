@@ -56,7 +56,7 @@
         
             <form action="{{ path('survey_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-                    <button type="submit">{{ 'Delete'|trans }}</button>
+                    <button class="btn btn-danger" type="submit">{{ 'Delete'|trans }}</button>
             </form>
           </li>
         </ul>

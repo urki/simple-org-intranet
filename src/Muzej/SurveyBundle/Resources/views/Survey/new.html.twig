@@ -5,46 +5,40 @@
 
 {% block content %}
   {{ parent() }}
- 
-   
-    
+
+
+
 <div class="row">
     <div class="span4">
         <form action="{{ path('survey_create') }}" method="post" {{ form_enctype(form) }}>
- 
-    {{ form_errors(form) }}
-    
-
+        {{ form_errors(form) }}
+          {% if default=='empty' %}   
+             {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {'tabindex': '1',  'autofocus' : 'autofocus', 'class' : 'span3 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='../../images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
+          {% else %}   
+             <p class="lead">{{ default }}</p>
            
-  {% if default=='empty' %}   
-             {{ form_row(form.name, { 'label' : 'Prostor', 'attr' : {  'class' : 'span3 chzn-select', 'onchange':"if(document.images) document.images['flag'].src='../../images/flags/'+this.options[this.selectedIndex].value+'.gif';" }})}}
- 
-      {% else %}         
-             <h1>{{ default }}</h1>
- {% endif %}
 
-    
-              
-               
-  {{ form_row(form.temperature, { 'label' : 'Temperatura' , 'attr':{'class':'span3'} }) }}
-    {{ form_row(form.moisture, { 'label' : 'Vlaga' , 'attr':{'class':'span3'} }) }}
-    
-    
- 
-<div id="demo" class="collapse">
+          {% endif %}
 
-    {{ form_row(form.note, { 'label' : 'Opomba', 'attr' : { 'class' : 'span2'} }) }}
-    {{ form_row(form.date, { 'label' : 'Datum vpisovanja' }) }}
-    {{ form_row(form.time, { 'label' : 'Čas vpisa'} ) }}
+  {{ form_row(form.temperature, { 'label' : 'Temperatura:' , 'attr':{'tabindex': '2', 'class':'span3'} }) }}
+    {{ form_row(form.moisture, { 'label' : 'Vlaga:' , 'attr':{'tabindex': '3','class':'span3'} }) }}
+
+
+
+            <div id="demo" class="collapse">
+
+    {{ form_row(form.note, { 'label' : 'Opomba', 'attr' : { 'tabindex': '7',  'class' : 'span2'} }) }}
+    {{ form_row(form.date, { 'label' : 'Datum vpisovanja' , 'attr' : { 'tabindex': '8'}   }) }}
+    {{ form_row(form.time, { 'label' : 'Čas vpisa' , 'attr' : { 'tabindex': '9'} } ) }}
     {{ form_widget(form) }}
 
-    
-</div>
+
+            </div>
 
             <div class="btn-group" data-toggle="buttons-checkbox">
-                <button class="btn btn-success" type="submit" formnovalidate><i class="icon-pencil"></i> Zapiši</button>
-                <a class="btn  btn-warning record_actions" href="{{ path('survey') }}"><i class="icon-refresh"></i> {{ 'Turn'|trans }}</a>
-                <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo"><i class="icon-plus"></i> ...več</button>
+                <button class="btn btn-success" tabindex="4" type="submit" formnovalidate><i class="icon-pencil"></i>{{ 'Submit'|trans }}</button>
+                <a class="btn  btn-warning record_actions" tabindex="5" href="{{ path('survey') }}"><i class="icon-refresh"></i> {{ 'Turn'|trans }}</a>
+                <button type="button" class="btn btn-danger" tabindex="6" data-toggle="collapse" data-target="#demo"><i class="icon-plus"></i> ...več</button>
             </div>    
 
         </form>

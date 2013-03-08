@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Muzej\SurveyBundle\SurveyBundle(),
             new Muzej\UserBundle\UserBundle(),
             new Root\ExperimentBundle\RootExperimentBundle(),
+            new Muzej\MenuBundle\MenuBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

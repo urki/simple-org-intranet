@@ -1,6 +1,10 @@
+menu:
+    resource: "@MenuBundle/Controller"
+    type: annotation
+
 root_experiment:
     resource: "@RootExperimentBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /root
 
 user_routes:
     resource: "@UserBundle/Controller"

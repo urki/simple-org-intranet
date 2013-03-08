@@ -1,0 +1,40 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Survey menu'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
+<section class="main-block">
+    <style>
+            body {background-image:url('{{ asset('bundles/menu/img/Survey-excellent.jpg') }}');
+                  background-repeat:no-repeat;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;} 
+
+        </style>
+        <article>
+            <section>
+
+                <a href="{{ path('survey') }}">
+                    <img  data-toggle="tooltip" title="{{ "insert new action"|trans }}" src="{{ asset('bundles/menu/img/tmpMois120.png') }}" class="shadow img-circle shadow">
+                    <div class="caption">
+                        <h5>{{ 'Tmp/Mois survey'|trans }}</h5>
+                    </div>
+                </a>
+           {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('user_register') }}">
+                    <img  data-toggle="tooltip" title="{{ "about employee"|trans }}"  src="{{ asset('bundles/menu/img/employee120.png') }}" class="img-circle shadow">
+                    <div class="caption">
+                        <h5>{{ 'employee'|trans }}</h5>
+                    </div>
+                </a>
+           {% endif %}
+
+            </section>
+        </article>
+    </section>
+{% endblock content %}

@@ -1,81 +1,33 @@
 {# empty Twig template  
 {% extends '::basebootstrapblack.html.twig' %}
 #}
-
-   
+  
 {% extends '::white.museum.base.html.twig' %}
-{% block title %}{{ title }}{% endblock %}
+    
+               
+{% block title %}{{ title }}{% endblock title %}
 
-
-{% block head %}
-   {{ parent() }}
-    <style type="text/css">
-     
- masthead {background-image:url('../../images/flags/grad.png');}
-
-      
-           #body {background-image:url('http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-7.jpg');}
-           
-           #body {background-image:url('http://fc04.deviantart.net/fs11/i/2006/240/7/a/Bg_Texture___wood_by_nortago.jpg');}
-            #body {background-image:url('');}
-       #body {background-image:url('http://fc05.deviantart.net/fs28/i/2008/181/3/b/tileable_wood_texture_by_ftIsis_Stock.jpg');}
-       
-       body {background-image:url('../../images/wood/morewood/KOA.jpg');}
-          
-       
-
-            body {
-        padding-top: 20px;
-        padding-bottom: 40px;
-      }
-
-      /* Custom container */
-      .container-narrow {
-        margin: 0 auto;
-        max-width: 700px;
-      }
-      .container-narrow > hr {
-        margin: 30px 0;
-      }
-
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 60px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 72px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
-
-      /* Supporting marketing content */
-      .marketing {
-        margin: 60px 0;
-      }
-      .marketing p + h4 {
-        margin-top: 28px;
-      }
-         
-    </style>
-{% endblock %}
 
 {% block contentheader %}
 {{ parent() }}
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="{{ path('survey') }}">{{ 'Home'|trans }}</a></li>
+          <li class="active"><a href="{{ path('main_menu') }}">{{ 'Home'|trans }}</a></li>
           {% if is_granted('ROLE_USER') %}
            <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
            {% else %}
             <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
            {% endif %}
         </ul>
-        <h3 class="muted">{{ title }}</h3>
+        <h3 class="muted"> <a href="{{ path('main_menu') }}">
+                    <img  data-toggle="tooltip" title="{{ "Home"|trans }}" src="{{ asset('bundles/menu/img/home64.png') }}" class="shadow img-circle shadow">
+
+            </a>{{ title }} 
+                    {% if subtitle is defined  %}
+                        {{ subtitle }}
+                    {% endif %}
+        </h3>
       </div>
 
       <hr>

@@ -142,7 +142,7 @@ class SurveyController extends Controller {
             $em->persist($entity);
             $em->flush();
             $request->getSession()->setFlash('success', 'Insert was successfull');
-            return $this->redirect($this->generateUrl('survey_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('survey', array('id' => $entity->getId())));
         }
 
         return $this->render('SurveyBundle:Survey:new.html.twig', array(

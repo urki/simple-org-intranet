@@ -1,0 +1,26 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Report menu'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
+<section class="main-block">
+    <style>
+    body {background-image:url('{{ asset('bundles/menu/img/grad.jpg') }}');
+    background-repeat:no-repeat;} 
+        </style>
+    <article>
+        <section>
+         
+            <a href="http://24ur.com">
+                <img src="{{ asset('bundles/menu/img/quarterly-report120.png') }}" class="img-circle">
+            </a>
+           
+
+        </section>
+    </article>
+</section>
+{% endblock content %}

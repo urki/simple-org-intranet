@@ -1,0 +1,50 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Main menu'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
+<section class="main-block">
+    <style>
+            body {background-image:url('{{ asset('bundles/menu/img/grad1280.jpg') }}');
+
+                  background-repeat:no-repeat;
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;} 
+
+
+        </style>
+        <article>
+            <section>
+                <div class="row">
+                    <div class="span2">
+                        <a href="{{ path('survey_menu') }}">
+                            <img data-toggle="tooltip" title="{{ "insert new action"|trans }}" src="{{ asset('bundles/menu/img/table120.png') }}" class="shadow">
+                            <h5  class="caption">{{ 'Records'|trans }}</h5>  
+                        </a>
+                    </div>
+
+                 {% if is_granted('ROLE_ADMIN') %}
+                    <div class="span2">
+                        <a href="{{ path('report_menu')}}">
+                            <img data-toggle="tooltip" title="{{ "preview reports"|trans }}" src="{{ asset('bundles/menu/img/pie120.png') }}" class="img-circle shadow">
+
+                            <h5  class="caption">{{ 'Reports'|trans }}</h5>
+
+                        </a>
+                    </div>
+                {% endif %}
+
+
+
+                </div>
+
+            </section>
+        </article>
+    </section>
+{% endblock content %}
