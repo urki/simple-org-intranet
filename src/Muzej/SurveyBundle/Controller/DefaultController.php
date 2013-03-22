@@ -2,7 +2,7 @@
 
 namespace Muzej\SurveyBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Muzej\SurveyBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {

@@ -1,52 +1,56 @@
 {# empty Twig template  
 {% extends '::basebootstrapblack.html.twig' %}
 #}
-  
+
 {% extends '::white.museum.base.html.twig' %}
-    
-               
+
+
 {% block title %}{{ title }}{% endblock title %}
 
 
 {% block contentheader %}
 {{ parent() }}
 
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="{{ path('main_menu') }}">{{ 'Home'|trans }}</a></li>
-          {% if is_granted('ROLE_USER') %}
-           <li><a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a></li>
-           {% else %}
-            <li><a href="{{ path('login') }}">{{ 'Login'|trans }}</a></li>
-           {% endif %}
-        </ul>
-        <h3 class="muted"> <a href="{{ path('main_menu') }}">
-                    <img  data-toggle="tooltip" title="{{ "Home"|trans }}" src="{{ asset('bundles/menu/img/home64.png') }}" class="shadow img-circle shadow">
+<div class="masthead">
+    <ul class="nav nav-pills pull-right">
 
-            </a>{{ title }} 
+        <li class="active"><a href="{{ path('main_menu') }}">{{ 'Home'|trans }}</a></li>
+         <li class=""><a href="http://192.168.50.12/projects/help/index.html" target="_blank">{{ 'Help'|trans }}</a></li>
+          {% if is_granted('ROLE_USER') %}
+        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans }} {{ app.user.username }}</a> </li>
+           {% else %}
+        <li><a href="{{ path('fos_user_security_login') }}">{{ 'Login'|trans }}</a></li>
+           {% endif %}
+       
+    </ul>
+    <h3 class="muted"> <a href="{{ path('main_menu') }}">
+            <img  data-toggle="tooltip" title="{{ "Home"|trans }}" src="{{ asset('bundles/menu/img/home64.png') }}" class="shadow img-circle shadow"></a>  
+                 {% if title is defined  %}
+                   {{ title }} 
+                 {% endif %}
                     {% if subtitle is defined  %}
                         {{ subtitle }}
                     {% endif %}
-        </h3>
-      </div>
+    </h3>
+</div>
 
-      <hr>
+<hr>
 
-      
+
 {% endblock contentheader %}
 {% block content %}{% endblock content %}
 {% block contentfoot %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ asset('bundles/survey/js/chosen.jquery.js') }}"></script>
-     <script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('bundles/survey/js/chosen.jquery.js') }}"></script>
+<script type="text/javascript"> $(".chzn-select").chosen(); $(".chzn-select-deselect").chosen({allow_single_deselect:true}); </script>
    {# @TODO how to modify to use just one jquery - the last one? no 1.6.4 #}
-    <script type="text/javascript" src="{{ asset('bundles/survey/js/jquery.js') }}"></script>
-    
-    <script type="text/javascript" src="{{ asset('bundles/survey/js/bootstrap-collapse.js') }}"></script>   
-    
+<script type="text/javascript" src="{{ asset('bundles/survey/js/jquery.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('bundles/survey/js/bootstrap-collapse.js') }}"></script>   
+
 {% endblock contentfoot %} 
-    
-   
+
+
 
     {#
   

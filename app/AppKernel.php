@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Muzej\UserBundle\UserBundle(),
             new Root\ExperimentBundle\RootExperimentBundle(),
             new Muzej\MenuBundle\MenuBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -84,19 +84,15 @@ class Survey {
      */
     private $created_at;
 
+  
+    
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Muzej\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Muzej\UserBundle\Entity\User", cascade={"remove"}, inversedBy="survey") 
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     * 
      */
     protected $owner;
-
-    public function getOwner() {
-        return $this->owner;
-    }
-
-    public function setOwner(User $owner) {
-        $this->owner=$owner;
-    }
 
     public function getCreated_at() {
         return $this->created_at;
@@ -104,6 +100,14 @@ class Survey {
 
     public function setCreated_at($created_at) {
         $this->created_at = $created_at;
+    }
+
+    public function getOwner() {
+        return $this->owner;
+    }
+
+    public function setOwner(User $owner) {
+        $this->owner = $owner;
     }
 
     /**

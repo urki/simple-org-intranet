@@ -4,7 +4,13 @@
 {{ parent() }}
 <link rel="stylesheet" href="{{ asset('bundles/user/css/login.css') }}" />
 {% endblock stylesheets %}
+
+
 {% block body %}
+
+{% block content %}
  {{ block('fos_user_content') }}
+
+{% endblock content %}
 
 {% endblock body %}

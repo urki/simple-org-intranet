@@ -9,7 +9,7 @@
 
 <section class="main-block">
     <style>
-            body {background-image:url('{{ asset('bundles/menu/img/grad1280.jpg') }}');
+            body {background-image:url('{{ asset('bundles/menu/img/grad960.jpg') }}');
 
                   background-repeat:no-repeat;
                   -webkit-background-size: cover;
@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="span2">
                         <a href="{{ path('survey_menu') }}">
-                            <img data-toggle="tooltip" title="{{ "insert new action"|trans }}" src="{{ asset('bundles/menu/img/table120.png') }}" class="shadow">
+                            <img data-toggle="tooltip" title="{{ "survey submenu"|trans }}" src="{{ asset('bundles/menu/img/table120.png') }}" class="shadow">
                             <h5  class="caption">{{ 'Records'|trans }}</h5>  
                         </a>
                     </div>
@@ -32,12 +32,19 @@
                  {% if is_granted('ROLE_ADMIN') %}
                     <div class="span2">
                         <a href="{{ path('report_menu')}}">
-                            <img data-toggle="tooltip" title="{{ "preview reports"|trans }}" src="{{ asset('bundles/menu/img/pie120.png') }}" class="img-circle shadow">
+                            <img data-toggle="tooltip" title="{{ "reports submenu"|trans }}" src="{{ asset('bundles/menu/img/pie120.png') }}" class="img-circle shadow">
 
                             <h5  class="caption">{{ 'Reports'|trans }}</h5>
 
                         </a>
                     </div>
+                        <div span2>   <a href="{{ path('fos_user_registration_register') }}">
+                    <img  data-toggle="tooltip" title="{{ "about employee"|trans }}"  src="{{ asset('bundles/menu/img/employee120.png') }}" class="img-circle shadow">
+                    <div class="caption">
+                        <h5>{{ 'employee'|trans }}</h5>
+                    </div>
+                </a>
+                        </div>
                 {% endif %}
 
 

@@ -8,7 +8,7 @@
 
 <section class="main-block">
     <style>
-            body {background-image:url('{{ asset('bundles/menu/img/Survey-excellent.jpg') }}');
+            body {background-image:url('{{ asset('bundles/menu/img/Survey-excellent1024.jpg') }}');
                   background-repeat:no-repeat;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
@@ -26,12 +26,7 @@
                     </div>
                 </a>
            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('user_register') }}">
-                    <img  data-toggle="tooltip" title="{{ "about employee"|trans }}"  src="{{ asset('bundles/menu/img/employee120.png') }}" class="img-circle shadow">
-                    <div class="caption">
-                        <h5>{{ 'employee'|trans }}</h5>
-                    </div>
-                </a>
+             
            {% endif %}
 
             </section>
