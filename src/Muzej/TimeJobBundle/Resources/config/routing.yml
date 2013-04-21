@@ -1,0 +1,7 @@
+_default_import:
+    resource: routing/default.yml
+    
+SurveyBundle_survey:
+    resource: "@SurveyBundle/Resources/config/routing/survey.yml"
+    prefix:   /survey
+

@@ -1,0 +1,3 @@
+survey_homepage:
+    pattern:  /default
+    defaults: { _controller: SurveyBundle:Survey:index }

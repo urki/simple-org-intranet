@@ -107,27 +107,23 @@ class SurveyController extends Controller {
      * Displays a form to create a new Survey entity.
      *
      */
-    public function newAction($default='empty') {
+    public function newAction($default = 'empty') {
         $entity = new Survey();
-        if ($default<>'empty') {
+        if ($default != 'empty') {
             $entity = new Survey();
             $entity->setName($default);
             $form = $this->createForm(new SurveyTip(), $entity);
-           // $default=array('default' => $default);
             // $namearray=array($default=>'name');
             //  $namearray=array('name'=>$default);
         } else {
             $form = $this->createForm(new SurveyType(), $entity);
-      
         }
 
-        
         return $this->render('SurveyBundle:Survey:new.html.twig', array(
                     'entity' => $entity,
-                  'default' => $default,
+                    'default' => $default,
                     'form' => $form->createView(),
                 ));
-        
     }
 
     /**

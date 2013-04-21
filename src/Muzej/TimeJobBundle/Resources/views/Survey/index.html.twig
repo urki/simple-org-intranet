@@ -48,14 +48,14 @@
                 width: auto;
             }
         </style>
-
-
+     
+        
         <table class="table table-hover table-condensed table-nonfluid">
 
             <thead>
-
+                                                             
                 <tr>    
-
+                  
                     <th> <a href="{{ path('survey_new') }}" class="badge badge-success"><i data-toggle="tooltip" title="{{ "insert new action"|trans }}"  class="icon-pencil icon-white"></i></a></th>
                     <th>{{ "Place"|trans }}</th>
                    {#   <th>{{ "Id"|trans }}</th>
@@ -73,14 +73,14 @@
                 <tr>
 
                     <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "insert new action"|trans }} {{ "for place"|trans }} {{ place|trans }}" class="icon-pencil"></i>&nbsp;</a>
-                  <td><strong>{{ place }}</strong></td>  
+                    <td><strong>{{ place }}</strong></td>  
 
                     </td>
 
 
              {% for entity in entities %}
              {% if entity.name==place  %}
-                    {#  <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    {#   <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                       <td>{% if entity.time %} {% set date = 'date'|trans %}{{ entity.time|date('Y-m-d H:i:s') }}{% endif %}</td>
                    #}  
 
