@@ -47,6 +47,10 @@
             .table-nonfluid {
                 width: auto;
             }
+         /*center if in the table text is paragraph*/
+            .table td p{
+                text-align: center;   
+            }
         </style>
 
 
@@ -64,18 +68,18 @@
                     <th>{{ "Moisture"|trans }}</th>
                   {#  <th>{{ "Note"|trans }}</th> #}
 
-                </tr>
-            </thead>
-            <tbody>
+                    </tr>
+                </thead>
+                <tbody>
 
      {% for place in places %}
 
-                <tr>
+                    <tr>
 
-                    <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "insert new action"|trans }} {{ "for place"|trans }} {{ place|trans }}" class="icon-pencil"></i>&nbsp;</a>
-                  <td><strong>{{ place }}</strong></td>  
+                        <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "insert new action"|trans }} {{ "for place"|trans }} {{ place|trans }}" class="icon-pencil"></i>&nbsp;</a>
+                        <td><strong>{{ place }}</strong></td>  
 
-                    </td>
+                        </td>
 
 
              {% for entity in entities %}
@@ -83,11 +87,10 @@
                     {#  <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                       <td>{% if entity.time %} {% set date = 'date'|trans %}{{ entity.time|date('Y-m-d H:i:s') }}{% endif %}</td>
                    #}  
-
-                    <td>{{ entity.temperature }}</td>
-                    <td>{{ entity.moisture }}</td>
+                        <td><p>{{ entity.temperature }}</p></td>
+                        <td><p>{{ entity.moisture }}</p></td>
                   {#  <td>{{ entity.note }}</td> #}
-                    <td>
+                        <td>
 
 
 
@@ -105,29 +108,21 @@
 #}
 
 
-                        <a href="{{ path('survey_show', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{ "show"|trans }}" class=" icon-info-sign"></i></a>
+                            <a href="{{ path('survey_show', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{ "show"|trans }}" class=" icon-info-sign"></i></a>
 
-                        <a href="{{ path('survey_edit', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{"edit"|trans }}" class="icon-edit"></i></a>
+                            <a href="{{ path('survey_edit', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{"edit"|trans }}" class="icon-edit"></i></a>
 
 
-                    </td>
+                        </td>
 
             {% endif %}
              {% endfor %}
-                </tr>
+                    </tr>
         {% endfor %}
-
-
-            </tbody>
-        </table>
-
-
-
-
-
-
-    </p>
-</div>
+                </tbody>
+            </table>
+        </p>
+    </div>
 {% endblock %}
 
 
