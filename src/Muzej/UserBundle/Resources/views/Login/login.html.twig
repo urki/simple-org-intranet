@@ -5,41 +5,6 @@
 <link rel="stylesheet" href="{{ asset('bundles/user/css/login.css') }}" />
 {% endblock stylesheets %}
 {% block body %}
-{% block content %}
-  {{ parent() }}
-
-
-<div>
-
-    <form class="form-signin" action="{{ path('login_check') }}" method="post">
-
-        <h2 class="form-signin-heading">{{ 'Company'|trans }}</h2>
-          {% if error %}
-        <div class="alert alert-error"> {#<button type="button" class="close" data-dismiss="alert">&times;</button> #}
-                  {{ error.message|trans }}</div>
-             {% endif %}
-            <label for="username">{{ 'name'|trans|raw }}:</label>
-            <input class="input-block-level" placeholder={{ 'name'|trans }} type="text" id="username" name="_username" value="{{ last_username }}" />
-
-            <label for="password">{{ 'password'|trans }}:</label>
-            <input class="input-block-level" placeholder={{ 'password'|trans }} type="password" id="password" name="_password" />
-
-    {#
-        If you want to control the URL the user is redirected to on success (more details below)
-        <input type="hidden" name="_target_path" value="/account" />
-    #}
-
-            <button class="btn btn-large btn-primary" type="submit">{{ 'Login'|trans }}</button>
-        </form>
-
-    </div>
- {% block footer %}{% endblock footer %}
-
-  {% endblock content %}
-{# @TODO  find js (bootstrap twitter for closing alert.  For now it doesnt work
-{% block contentfoot %}
-     <script type="text/javascript" src="{{ asset('bundles/user/js/bootstrap-alert.js') }}"></script> 
-{% endblock contentfoot %} 
-#}
+ {{ block('fos_user_content') }}
 
 {% endblock body %}

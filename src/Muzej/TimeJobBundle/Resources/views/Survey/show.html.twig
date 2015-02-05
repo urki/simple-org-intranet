@@ -1,0 +1,67 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Show survey insert'|trans %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>{{ 'Id'|trans }}:</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'Name'|trans }}:</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'Time'|trans }}:</th>
+            <td>{{ entity.time|date('d/m/Y H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'Temperature'|trans }}:</th>
+            <td>{{ entity.temperature }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'Moisture'|trans }}:</th>
+            <td>{{ entity.moisture }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'Note'|trans }}:</th>
+            <td>{{ entity.note }}</td>
+        </tr>
+    </tbody>
+</table>
+{% if app.user == entity.owner %}
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('survey') }}">
+            {{ 'Back to the list' |trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('survey_edit', { 'id': entity.id }) }}">
+            {{ 'Edit'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('survey_new', { 'id': entity.id }) }}">
+           {{ 'New'|trans }}
+        </a>
+    </li>
+    <li>
+        
+            <form action="{{ path('survey_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+                    <button class="btn btn-danger" type="submit">{{ 'Delete'|trans }}</button>
+            </form>
+          </li>
+        </ul>
+    {% endif %}
+  {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% endif %}
+
+{% endblock content %}

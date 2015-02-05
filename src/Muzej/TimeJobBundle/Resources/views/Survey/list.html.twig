@@ -1,0 +1,80 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set title = 'Popis' %}
+
+
+{% block content %}
+  {{ parent() }}
+
+
+ 
+  
+<div class="container">
+
+    <p>
+        
+     
+    <style>
+       /*označevanje z modro barvo tistih tabelnih vrstic ki so hover z miško
+=============================================================*/
+.records_list tbody tr:hover td,
+.records_list  tbody tr:hover th {
+  background-color: #F2F5A9;
+   opacity:0.7;
+  filter:alpha(opacity=90); 
+  
+}
+        </style>
+ 
+<table class="records_list  table-hover">
+    
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Prostor</th>
+            <th>Time</th>
+            <th>Temperature</th>
+            <th>Moisture</th>
+            <th>Note</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{% if entity.time %}{{ entity.time|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.temperature }}</td>
+            <td>{{ entity.moisture }}</td>
+            <td>{{ entity.note }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('survey_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('survey_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+        <a href="{{ path('survey_new') }}" class="btn btn-large btn-warning disabled">Nov vnos</a>
+        
+  
+
+
+    
+
+    </p>
+</div>
+{% endblock %}
+
+
+
+

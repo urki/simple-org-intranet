@@ -1,0 +1,135 @@
+{% extends 'SurveyBundle::layout2.html.twig' %}
+
+{% set now="now"|date("d.m.Y") %}
+
+{% set title = 'Survey'|trans  %}
+{% set subtitle = now  %}
+
+
+
+
+{% set places =['kapela','zbirka4145','mastodont','rondelaS','rondelaZ','depo1','depo2','strazarnica','foit2','foit4','trgovina',
+                                                          'gostilna' ,
+                                                          'prehodne1',
+                                                          'prehodne2',
+                                                          'županova1',
+                                                          'županova2',
+                                                          'nastajanjeV1',
+                                                          'nastajanjeV2',
+                                                          'nastajanjeV3', 
+                                                          'romanika1',
+                                                          'romanika2',
+                                                          'romanika3',
+                                                           'učilnica',                                                               
+                                                       'arhiv'] %}  
+
+{% block content %}
+  {{ parent() }}
+
+
+
+
+<div class="container">
+
+    <p>
+
+
+    <style>
+            /*označevanje z modro barvo tistih tabelnih vrstic ki so hover z miško
+     =============================================================*/
+            .records_list tbody tr:hover td,
+            .records_list  tbody tr:hover th {
+                background-color: #F2F5A9;
+                opacity:0.7;
+                filter:alpha(opacity=90); 
+
+            }
+            .table-nonfluid {
+                width: auto;
+            }
+        </style>
+     
+        
+        <table class="table table-hover table-condensed table-nonfluid">
+
+            <thead>
+                                                             
+                <tr>    
+                  
+                    <th> <a href="{{ path('survey_new') }}" class="badge badge-success"><i data-toggle="tooltip" title="{{ "insert new action"|trans }}"  class="icon-pencil icon-white"></i></a></th>
+                    <th>{{ "Place"|trans }}</th>
+                   {#   <th>{{ "Id"|trans }}</th>
+                  <th>{{ "Time"|trans }}</th>
+                    #}<th>{{ "Temperature"|trans }}</th>
+                    <th>{{ "Moisture"|trans }}</th>
+                  {#  <th>{{ "Note"|trans }}</th> #}
+
+                </tr>
+            </thead>
+            <tbody>
+
+     {% for place in places %}
+
+                <tr>
+
+                    <td>   <a href="{{ path('survey_new') }}/{{ place }}"><i data-toggle="tooltip" title="{{ "insert new action"|trans }} {{ "for place"|trans }} {{ place|trans }}" class="icon-pencil"></i>&nbsp;</a>
+                    <td><strong>{{ place }}</strong></td>  
+
+                    </td>
+
+
+             {% for entity in entities %}
+             {% if entity.name==place  %}
+                    {#   <td><a href="{{ path('survey_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                      <td>{% if entity.time %} {% set date = 'date'|trans %}{{ entity.time|date('Y-m-d H:i:s') }}{% endif %}</td>
+                   #}  
+
+                    <td>{{ entity.temperature }}</td>
+                    <td>{{ entity.moisture }}</td>
+                  {#  <td>{{ entity.note }}</td> #}
+                    <td>
+
+
+
+
+
+                       {#
+                            <div class="btn-toolbar">
+    <div class="btn-group">
+    <a class="btn" href="{{ path('survey_new') }}/{{ place }}"><i class="icon-pencil"></i></a>
+    <a class="btn" href="{{ path('survey_show', { 'id': entity.id }) }}"><i class="icon-search"></i></a>
+    <a class="btn" href="{{ path('survey_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+   
+    </div>
+    </div>
+#}
+
+
+                        <a href="{{ path('survey_show', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{ "show"|trans }}" class=" icon-info-sign"></i></a>
+
+                        <a href="{{ path('survey_edit', { 'id': entity.id }) }}"><i data-toggle="tooltip" title="{{"edit"|trans }}" class="icon-edit"></i></a>
+
+
+                    </td>
+
+            {% endif %}
+             {% endfor %}
+                </tr>
+        {% endfor %}
+
+
+            </tbody>
+        </table>
+
+
+
+
+
+
+    </p>
+</div>
+{% endblock %}
+
+
+
+

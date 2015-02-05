@@ -16,7 +16,7 @@ class SurveyRepository extends EntityRepository
        return $this
                 ->createQueryBuilder('e')
                 ->addOrderBy('e.time', 'DESC')
-                ->andWhere('e.date>= :now')
+                ->andWhere('e.date= :now')
                 ->GroupBy('e.name')
                 ->setParameter('now', new \DateTime('today'))
                 ->getQuery()

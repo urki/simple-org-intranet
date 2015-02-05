@@ -23,48 +23,46 @@
            {% endblock stylesheets %}
             <!-- Fav and touch icons -->
             <link rel="icon" type="image/x-icon" href="{{ asset('bundles/survey/favicon.ico') }}" />
-            
+
         {% endblock head %}
-    </head>
-    <body>
+        </head>
+        <body>
        {% block body %}
-          <div class="container-narrow papir">
-                <div id="contentheader">
+                <div class="container-narrow papir">
+                    <div id="contentheader">
                   {% block contentheader %}
-                    {% block message %}
-                      {% if app.session.hasFlash('success') %}
-                         <div class="alert alert-success">
-                        {{ app.session.getFlash('success')|trans }}
-                         </div>
-                      {% endif %}
-                    {% endblock message %}
+                     {% block message %}
+                        {% for flashMessage in app.session.flashbag.get('success') %}
+                                <div class="flash-notice alert alert-success">
+                                    {{ flashMessage|trans }}
+                                    </div>
+                        {% endfor %}
+                     {% endblock message %}
                   {% endblock contentheader %}
-               </div>
-            <div id="content">
+                                    </div>
+                                    <div id="content">
               {% block content %}{% endblock content%}
               {#  for javascript and other things directly after contetnt is thi contentfoot  #}
               {% block contentfoot %}{% endblock contentfoot %} 
-            </div>
-            <div id="footer">
+                                        </div>
+                                        <div id="footer">
              {% block footer %}
-                    
-                    
-                                   &copy; {{ 'Copyright 2011 by'|trans }} <a href="http://www.muzej-velenje.si"> Muzej Velenje</a>.
-                                   {{ 'Created by'|trans }}<a href="https://plus.google.com/100636826027348519681/posts"> Uroš</a>
+                                                &copy; {{ 'Copyright 2013 by'|trans }} <a href="http://www.muzej-velenje.si"> Muzej Velenje</a>.
+                                   {{ 'Created by'|trans }}<a href="https://plus.google.com/100636826027348519681/posts"> Urki</a>
              {% endblock footer%}
-            </div>
-          </div>
+                                            </div>
+                                        </div>
           {% block javascripts %}
-              <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
-              <script>
-                  $(function() {
-                     $( ".datepicker" ).datepicker({ dateFormat: "yy-mm-dd", appendText: "", dayNamesMin: [ "Ne", "Po", "To", "Sr", "Če", "Pe", "So" ], monthNames: [ "Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December" ], firstDay: 1 , maxDate: "+6d", minDate: "-6d" });
-                  });
-              </script>
+                                        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>     
+                                        <script>
+                                            $(function() {
+                                                $(".datepicker").datepicker({dateFormat: "yy-mm-dd", appendText: "", dayNamesMin: ["Ne", "Po", "To", "Sr", "Če", "Pe", "So"], monthNames: ["Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "August", "September", "Oktober", "November", "December"], firstDay: 1, maxDate: "+6d", minDate: "-6d"});
+                                            });
+                                            </script>
           {% endblock javascripts %}
       {% endblock body %}
-   </body>
- </html>
+                                        </body>
+                                    </html>
 
 
 
